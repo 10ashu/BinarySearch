@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int peakIndexInMountainArray(vector<int>& arr) {
+        int s=0;
+        int e=arr.size()-1;
+        int mid=s+(e-s)/2;
+        // s<e krenge kyonki if(arr[mid]<arr[mid+1] baar baar repeat kr rhen hnn)
+        // aur yhaan hr baar mid ko key se match nhi kr rhen hnn jbki aage walw se compare kr rhen hnn
+        while(s<e)
+        {
+            mid=s+(e-s)/2;
+            if(arr[mid]<arr[mid+1])
+            {
+                s=mid+1;
+            }
+            else
+            {
+                e=mid;
+            }
+            
+        }
+        return s;
+    }
+};
